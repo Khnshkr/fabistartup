@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "14634588009",
+    "project_id": "fabi-startup",
+    "storage_bucket": "fabi-startup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14634588009:android:8646815d7aef8bcc754ff8",
+        "android_client_info": {
+          "package_name": "com.flutterflow.fabistartup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14634588009-ug75dns95hr4k0va2ohp8lokjiq7lb84.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.fabistartup",
+            "certificate_hash": "71f2f512cafa2c0196b5d5822b2dd4207b31b503"
+          }
+        },
+        {
+          "client_id": "14634588009-0jdm0fq29bf5em1puipek69si74v416i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAloMzbd-jIUZmigNakWGNj6EehocdhAY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14634588009-0jdm0fq29bf5em1puipek69si74v416i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "14634588009-vhml43ubrpids7slp82c8vl5sk16pt7b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.fabistartup"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
