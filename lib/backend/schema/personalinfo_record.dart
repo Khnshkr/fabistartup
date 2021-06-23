@@ -17,10 +17,56 @@ abstract class PersonalinfoRecord
       _$personalinfoRecordSerializer;
 
   @nullable
+  String get gender;
+
+  @nullable
+  String get name;
+
+  @nullable
+  String get aadhaarnum;
+
+  @nullable
+  String get pannum;
+
+  @nullable
+  DocumentReference get mobileNumber;
+
+  @nullable
+  String get email;
+
+  @nullable
+  @BuiltValueField(wireName: 'display_name')
+  String get displayName;
+
+  @nullable
+  @BuiltValueField(wireName: 'photo_url')
+  String get photoUrl;
+
+  @nullable
+  String get uid;
+
+  @nullable
+  @BuiltValueField(wireName: 'created_time')
+  DateTime get createdTime;
+
+  @nullable
+  @BuiltValueField(wireName: 'phone_number')
+  String get phoneNumber;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
-  static void _initializeBuilder(PersonalinfoRecordBuilder builder) => builder;
+  static void _initializeBuilder(PersonalinfoRecordBuilder builder) => builder
+    ..gender = ''
+    ..name = ''
+    ..aadhaarnum = ''
+    ..pannum = ''
+    ..email = ''
+    ..displayName = ''
+    ..photoUrl = ''
+    ..uid = ''
+    ..phoneNumber = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Personalinfo');
@@ -40,11 +86,46 @@ abstract class PersonalinfoRecord
           serializer, {...data, kDocumentReferenceField: reference});
 }
 
-Map<String, dynamic> createPersonalinfoRecordData() => serializers.toFirestore(
-    PersonalinfoRecord.serializer, PersonalinfoRecord((p) => p));
+Map<String, dynamic> createPersonalinfoRecordData({
+  String gender,
+  String name,
+  String aadhaarnum,
+  String pannum,
+  DocumentReference mobileNumber,
+  String email,
+  String displayName,
+  String photoUrl,
+  String uid,
+  DateTime createdTime,
+  String phoneNumber,
+}) =>
+    serializers.toFirestore(
+        PersonalinfoRecord.serializer,
+        PersonalinfoRecord((p) => p
+          ..gender = gender
+          ..name = name
+          ..aadhaarnum = aadhaarnum
+          ..pannum = pannum
+          ..mobileNumber = mobileNumber
+          ..email = email
+          ..displayName = displayName
+          ..photoUrl = photoUrl
+          ..uid = uid
+          ..createdTime = createdTime
+          ..phoneNumber = phoneNumber));
 
 PersonalinfoRecord get dummyPersonalinfoRecord {
-  final builder = PersonalinfoRecordBuilder();
+  final builder = PersonalinfoRecordBuilder()
+    ..gender = dummyString
+    ..name = dummyString
+    ..aadhaarnum = dummyString
+    ..pannum = dummyString
+    ..email = dummyString
+    ..displayName = dummyString
+    ..photoUrl = dummyImagePath
+    ..uid = dummyString
+    ..createdTime = dummyTimestamp
+    ..phoneNumber = dummyString;
   return builder.build();
 }
 

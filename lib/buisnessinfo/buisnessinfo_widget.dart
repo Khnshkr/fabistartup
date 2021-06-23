@@ -1,11 +1,9 @@
 import '../auth/auth_util.dart';
-import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_drop_down_template.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -2910,10 +2908,8 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
               Padding(
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 60),
                 child: FFButtonWidget(
-                  onPressed: () async {
-                    final usersRecordData = createUsersRecordData();
-
-                    await currentUserReference.update(usersRecordData);
+                  onPressed: () {
+                    print('Button pressed ...');
                   },
                   text: 'Save & Skip',
                   options: FFButtonOptions(
