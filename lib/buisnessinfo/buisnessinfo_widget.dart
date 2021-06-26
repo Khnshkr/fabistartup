@@ -175,7 +175,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                   primary: false,
                                                   child: Column(
                                                     mainAxisSize:
-                                                        MainAxisSize.max,
+                                                        MainAxisSize.min,
                                                     children: [
                                                       Row(
                                                         mainAxisSize:
@@ -354,7 +354,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
-                                                                    .max,
+                                                                    .min,
                                                             crossAxisAlignment:
                                                                 CrossAxisAlignment
                                                                     .start,
@@ -472,7 +472,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
-                                                                    .max,
+                                                                    .min,
                                                             crossAxisAlignment:
                                                                 CrossAxisAlignment
                                                                     .start,
@@ -590,10 +590,10 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
-                                                                    .max,
+                                                                    .min,
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
-                                                                    .start,
+                                                                    .center,
                                                             crossAxisAlignment:
                                                                 CrossAxisAlignment
                                                                     .start,
@@ -832,7 +832,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
-                                                                      .max,
+                                                                      .min,
                                                               children: [
                                                                 Row(
                                                                   mainAxisSize:
@@ -971,7 +971,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                   primary: false,
                                                   child: Column(
                                                     mainAxisSize:
-                                                        MainAxisSize.max,
+                                                        MainAxisSize.min,
                                                     children: [
                                                       Row(
                                                         mainAxisSize:
@@ -1150,7 +1150,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
-                                                                    .max,
+                                                                    .min,
                                                             crossAxisAlignment:
                                                                 CrossAxisAlignment
                                                                     .start,
@@ -1408,7 +1408,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
-                                                                    .max,
+                                                                    .min,
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
                                                                     .start,
@@ -1631,7 +1631,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
-                                                                      .max,
+                                                                      .min,
                                                               children: [
                                                                 Row(
                                                                   mainAxisSize:
@@ -1755,7 +1755,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                   primary: false,
                                                   child: Column(
                                                     mainAxisSize:
-                                                        MainAxisSize.max,
+                                                        MainAxisSize.min,
                                                     children: [
                                                       Row(
                                                         mainAxisSize:
@@ -1935,7 +1935,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
-                                                                    .max,
+                                                                    .min,
                                                             crossAxisAlignment:
                                                                 CrossAxisAlignment
                                                                     .start,
@@ -2065,7 +2065,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
-                                                                    .max,
+                                                                    .min,
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
                                                                     .start,
@@ -2281,7 +2281,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                 primary: false,
                                                 child: Column(
                                                   mainAxisSize:
-                                                      MainAxisSize.max,
+                                                      MainAxisSize.min,
                                                   children: [
                                                     Row(
                                                       mainAxisSize:
@@ -2469,7 +2469,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                                 0, 10, 0, 0),
                                                         child: Column(
                                                           mainAxisSize:
-                                                              MainAxisSize.max,
+                                                              MainAxisSize.min,
                                                           crossAxisAlignment:
                                                               CrossAxisAlignment
                                                                   .start,
@@ -2601,7 +2601,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                                 0, 10, 0, 0),
                                                         child: Column(
                                                           mainAxisSize:
-                                                              MainAxisSize.max,
+                                                              MainAxisSize.min,
                                                           crossAxisAlignment:
                                                               CrossAxisAlignment
                                                                   .start,
@@ -2741,7 +2741,7 @@ class _BuisnessinfoWidgetState extends State<BuisnessinfoWidget> {
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
-                                                                    .max,
+                                                                    .min,
                                                             children: [
                                                               Row(
                                                                 mainAxisSize:
