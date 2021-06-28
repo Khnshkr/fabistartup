@@ -81,10 +81,12 @@ class _PersoninfoWidgetState extends State<PersoninfoWidget> {
               snapshot.data;
           // Customize what your widget looks like with no query results.
           if (snapshot.data.isEmpty) {
-            // return Container();
-            // For now, we'll just include some dummy data.
-            personinfoPersonalinfoRecordList =
-                createDummyPersonalinfoRecord(count: 1);
+            return Container(
+              height: 100,
+              child: Center(
+                child: Text('No results.'),
+              ),
+            );
           }
           final personinfoPersonalinfoRecord =
               personinfoPersonalinfoRecordList.first;
@@ -2523,10 +2525,12 @@ class _PersoninfoWidgetState extends State<PersoninfoWidget> {
                             snapshot.data;
                         // Customize what your widget looks like with no query results.
                         if (snapshot.data.isEmpty) {
-                          // return Container();
-                          // For now, we'll just include some dummy data.
-                          buttonPersonalinfoRecordList =
-                              createDummyPersonalinfoRecord(count: 1);
+                          return Container(
+                            height: 100,
+                            child: Center(
+                              child: Text('No results.'),
+                            ),
+                          );
                         }
                         final buttonPersonalinfoRecord =
                             buttonPersonalinfoRecordList.first;

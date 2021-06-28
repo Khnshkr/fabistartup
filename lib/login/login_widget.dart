@@ -62,8 +62,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                       padding: EdgeInsets.fromLTRB(0, 8, 0, 60),
                       child: SingleChildScrollView(
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Align(
                               alignment: Alignment(0, -0.65),
@@ -270,157 +271,159 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 ],
                               ),
                             ),
+                            Align(
+                              alignment: Alignment(0, 0),
+                              child: Padding(
+                                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                child: Container(
+                                  width: 230,
+                                  height: 44,
+                                  child: Stack(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment(0, 0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            final user =
+                                                await signInWithGoogle(context);
+                                            if (user == null) {
+                                              return;
+                                            }
+                                            await Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    NavBarPage(
+                                                        initialPage:
+                                                            'HomePage'),
+                                              ),
+                                              (r) => false,
+                                            );
+                                          },
+                                          text: 'Sign in with Google',
+                                          icon: Icon(
+                                            Icons.add,
+                                            color: Colors.transparent,
+                                            size: 20,
+                                          ),
+                                          options: FFButtonOptions(
+                                            width: 230,
+                                            height: 44,
+                                            color: Colors.white,
+                                            textStyle: GoogleFonts.getFont(
+                                              'Roboto',
+                                              color: Color(0xFF606060),
+                                              fontSize: 17,
+                                            ),
+                                            elevation: 4,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 0,
+                                            ),
+                                            borderRadius: 12,
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment: Alignment(-0.83, 0),
+                                        child: Container(
+                                          width: 22,
+                                          height: 22,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            'https://i0.wp.com/nanophorm.com/wp-content/uploads/2018/04/google-logo-icon-PNG-Transparent-Background.png?w=1000&ssl=1',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment(0, 0),
+                              child: Padding(
+                                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                child: Container(
+                                  width: 230,
+                                  height: 44,
+                                  child: Stack(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment(0, 0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            final user =
+                                                await signInWithFacebook(
+                                                    context);
+                                            if (user == null) {
+                                              return;
+                                            }
+                                            await Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    NavBarPage(
+                                                        initialPage:
+                                                            'HomePage'),
+                                              ),
+                                              (r) => false,
+                                            );
+                                          },
+                                          text: 'Login with Facebook',
+                                          icon: Icon(
+                                            Icons.add,
+                                            color: Colors.transparent,
+                                            size: 20,
+                                          ),
+                                          options: FFButtonOptions(
+                                            width: 230,
+                                            height: 44,
+                                            color: Colors.white,
+                                            textStyle: GoogleFonts.getFont(
+                                              'Roboto',
+                                              color: Color(0xFF1877F2),
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 17,
+                                            ),
+                                            elevation: 4,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 0,
+                                            ),
+                                            borderRadius: 12,
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment: Alignment(-0.83, 0),
+                                        child: Container(
+                                          width: 22,
+                                          height: 22,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            'https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          width: 100,
-                                          height: 38,
-                                          child: Stack(
-                                            children: [
-                                              Align(
-                                                alignment:
-                                                    Alignment(-0.7, -0.01),
-                                                child: Container(
-                                                  width: 18,
-                                                  height: 18,
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Image.network(
-                                                    'https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512',
-                                                  ),
-                                                ),
-                                              ),
-                                              FFButtonWidget(
-                                                onPressed: () async {
-                                                  final user =
-                                                      await signInWithFacebook(
-                                                          context);
-                                                  if (user == null) {
-                                                    return;
-                                                  }
-                                                  await Navigator
-                                                      .pushAndRemoveUntil(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          NavBarPage(
-                                                              initialPage:
-                                                                  'HomePage'),
-                                                    ),
-                                                    (r) => false,
-                                                  );
-                                                },
-                                                text: 'Sign in',
-                                                icon: Icon(
-                                                  Icons.add,
-                                                  color: Colors.transparent,
-                                                  size: 20,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  width: 100,
-                                                  height: 38,
-                                                  color: Colors.transparent,
-                                                  textStyle: FlutterFlowTheme
-                                                      .bodyText1
-                                                      .override(
-                                                    fontFamily: 'Poppins',
-                                                  ),
-                                                  borderSide: BorderSide(
-                                                    color: Color(0xFFAAAAAA),
-                                                    width: 0.5,
-                                                  ),
-                                                  borderRadius: 25,
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                          child: Container(
-                                            width: 100,
-                                            height: 38,
-                                            child: Stack(
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      Alignment(-0.7, -0.01),
-                                                  child: Container(
-                                                    width: 18,
-                                                    height: 18,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.network(
-                                                      'https://i0.wp.com/nanophorm.com/wp-content/uploads/2018/04/google-logo-icon-PNG-Transparent-Background.png?w=1000&ssl=1',
-                                                      fit: BoxFit.contain,
-                                                    ),
-                                                  ),
-                                                ),
-                                                FFButtonWidget(
-                                                  onPressed: () async {
-                                                    final user =
-                                                        await signInWithGoogle(
-                                                            context);
-                                                    if (user == null) {
-                                                      return;
-                                                    }
-                                                    await Navigator
-                                                        .pushAndRemoveUntil(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            NavBarPage(
-                                                                initialPage:
-                                                                    'HomePage'),
-                                                      ),
-                                                      (r) => false,
-                                                    );
-                                                  },
-                                                  text: 'Sign in',
-                                                  icon: Icon(
-                                                    Icons.add,
-                                                    color: Colors.transparent,
-                                                    size: 20,
-                                                  ),
-                                                  options: FFButtonOptions(
-                                                    width: 100,
-                                                    height: 38,
-                                                    color: Colors.transparent,
-                                                    textStyle: FlutterFlowTheme
-                                                        .bodyText1
-                                                        .override(
-                                                      fontFamily: 'Poppins',
-                                                    ),
-                                                    borderSide: BorderSide(
-                                                      color: Color(0xFFAAAAAA),
-                                                      width: 0.5,
-                                                    ),
-                                                    borderRadius: 25,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,

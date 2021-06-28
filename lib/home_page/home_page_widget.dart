@@ -2,12 +2,17 @@ import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../main.dart';
-import '../personinfo/personinfo_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePageWidget extends StatefulWidget {
-  HomePageWidget({Key key}) : super(key: key);
+  HomePageWidget({
+    Key key,
+    this.diaplayImage,
+  }) : super(key: key);
+
+  final String diaplayImage;
 
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
@@ -23,18 +28,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       appBar: AppBar(
         backgroundColor: Color(0xFFE53935),
         automaticallyImplyLeading: true,
-        leading: Padding(
-          padding: EdgeInsets.fromLTRB(5, 0, 0, 5),
-          child: Container(
-            width: 120,
-            height: 120,
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-            ),
-            child: Image.network(
-              currentUserPhoto,
-            ),
+        leading: Container(
+          width: 120,
+          height: 120,
+          clipBehavior: Clip.antiAlias,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+          ),
+          child: CachedNetworkImage(
+            imageUrl: currentUserPhoto,
           ),
         ),
         title: Text(
@@ -67,37 +69,33 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                InkWell(
-                  onTap: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PersoninfoWidget(),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                NavBarPage(initialPage: 'formtest'),
+                          ),
+                        );
+                      },
+                      icon: Icon(
+                        Icons.person,
+                        color: Color(0xFF525252),
+                        size: 80,
                       ),
-                    );
-                  },
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          print('IconButton pressed ...');
-                        },
-                        icon: Icon(
-                          Icons.person,
-                          color: Color(0xFF525252),
-                          size: 80,
-                        ),
-                        iconSize: 80,
+                      iconSize: 80,
+                    ),
+                    Text(
+                      'User profile',
+                      style: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Poppins',
                       ),
-                      Text(
-                        'User profile',
-                        style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Poppins',
-                        ),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.min,
@@ -124,71 +122,61 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     )
                   ],
                 ),
-                InkWell(
-                  onTap: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            NavBarPage(initialPage: 'Buisnessinfo'),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                NavBarPage(initialPage: 'Buisnessinfo'),
+                          ),
+                        );
+                      },
+                      icon: Icon(
+                        Icons.business,
+                        color: Color(0xFF525252),
+                        size: 80,
                       ),
-                    );
-                  },
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          print('IconButton pressed ...');
-                        },
-                        icon: Icon(
-                          Icons.business,
-                          color: Color(0xFF525252),
-                          size: 80,
-                        ),
-                        iconSize: 80,
+                      iconSize: 80,
+                    ),
+                    Text(
+                      'Startup info',
+                      style: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Poppins',
                       ),
-                      Text(
-                        'Startup info',
-                        style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Poppins',
-                        ),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 ),
-                InkWell(
-                  onTap: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            NavBarPage(initialPage: 'Reports'),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                NavBarPage(initialPage: 'Reports'),
+                          ),
+                        );
+                      },
+                      icon: Icon(
+                        Icons.bar_chart,
+                        color: Color(0xFF525252),
+                        size: 80,
                       ),
-                    );
-                  },
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          print('IconButton pressed ...');
-                        },
-                        icon: Icon(
-                          Icons.bar_chart,
-                          color: Color(0xFF525252),
-                          size: 80,
-                        ),
-                        iconSize: 80,
+                      iconSize: 80,
+                    ),
+                    Text(
+                      'Reports',
+                      style: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Poppins',
                       ),
-                      Text(
-                        'Reports',
-                        style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Poppins',
-                        ),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 )
               ],
             ),

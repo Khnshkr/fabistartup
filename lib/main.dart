@@ -8,6 +8,7 @@ import 'buisnessinfo/buisnessinfo_widget.dart';
 import 'reports/reports_widget.dart';
 import 'services/services_widget.dart';
 import 'knowledge_base/knowledge_base_widget.dart';
+import 'formtest/formtest_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -81,6 +82,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'Reports': ReportsWidget(),
       'Services': ServicesWidget(),
       'KnowledgeBase': KnowledgeBaseWidget(),
+      'formtest': FormtestWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
@@ -127,6 +129,14 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24,
             ),
             label: 'Learn',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              color: Color(0xFF9E9E9E),
+              size: 24,
+            ),
+            label: 'Pernonal info',
           )
         ],
         backgroundColor: Colors.white,
