@@ -28,7 +28,7 @@ class _SwotgraphWidgetState extends State<SwotgraphWidget> {
         child: Stack(
           children: [
             Align(
-              alignment: Alignment(-0.35, -0.26),
+              alignment: Alignment(-0.83, 0.04),
               child: Image.asset(
                 'assets/images/Swottempl.png',
                 width: 300,
