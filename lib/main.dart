@@ -4,11 +4,10 @@ import 'auth/firebase_user_provider.dart';
 import 'package:fabi_startup/login/login_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'home_page/home_page_widget.dart';
-import 'buisnessinfo/buisnessinfo_widget.dart';
-import 'reports/reports_widget.dart';
 import 'services/services_widget.dart';
+import 'reports/reports_widget.dart';
 import 'knowledge_base/knowledge_base_widget.dart';
-import 'formtest/formtest_widget.dart';
+import 'allchat/allchat_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -78,11 +77,10 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': HomePageWidget(),
-      'Buisnessinfo': BuisnessinfoWidget(),
-      'Reports': ReportsWidget(),
       'Services': ServicesWidget(),
+      'Reports': ReportsWidget(),
       'KnowledgeBase': KnowledgeBaseWidget(),
-      'formtest': FormtestWidget(),
+      'allchat': AllchatWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
@@ -97,11 +95,11 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.business,
+              Icons.handyman,
               color: Color(0xFF9E9E9E),
               size: 24,
             ),
-            label: 'Buisness info',
+            label: 'Services',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -116,14 +114,6 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.handyman,
-              color: Color(0xFF9E9E9E),
-              size: 24,
-            ),
-            label: 'Services',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
               Icons.book,
               color: Color(0xFF9E9E9E),
               size: 24,
@@ -132,11 +122,10 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home_outlined,
-              color: Color(0xFF9E9E9E),
+              Icons.chat,
               size: 24,
             ),
-            label: 'Pernonal info',
+            label: 'Chats',
           )
         ],
         backgroundColor: Colors.white,

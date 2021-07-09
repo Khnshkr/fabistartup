@@ -1,4 +1,5 @@
 import '../auth/auth_util.dart';
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -14,26 +15,26 @@ class SignupWidget extends StatefulWidget {
 }
 
 class _SignupWidgetState extends State<SignupWidget> {
-  TextEditingController confirmPasswordTextController;
-  bool passwordVisibility2;
-  TextEditingController emailTextController;
-  TextEditingController textController1;
-  TextEditingController textController2;
-  TextEditingController passwordTextController;
-  bool passwordVisibility1;
+  TextEditingController displaynameController;
+  TextEditingController phonenumController;
+  TextEditingController useremailController;
+  TextEditingController passwordController;
+  bool passwordVisibility;
+  TextEditingController passwordconfirmController;
+  bool passwordconfirmVisibility;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    confirmPasswordTextController = TextEditingController();
-    passwordVisibility2 = false;
-    emailTextController = TextEditingController();
-    textController1 = TextEditingController();
-    textController2 = TextEditingController();
-    passwordTextController = TextEditingController();
-    passwordVisibility1 = false;
+    displaynameController = TextEditingController();
+    phonenumController = TextEditingController();
+    useremailController = TextEditingController();
+    passwordController = TextEditingController();
+    passwordVisibility = false;
+    passwordconfirmController = TextEditingController();
+    passwordconfirmVisibility = false;
   }
 
   @override
@@ -128,7 +129,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                                         child: Align(
                                           alignment: Alignment(0, 0.5),
                                           child: TextFormField(
-                                            controller: textController1,
+                                            controller: displaynameController,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'Enter your name',
@@ -235,7 +236,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                                         child: Align(
                                           alignment: Alignment(0, 0.5),
                                           child: TextFormField(
-                                            controller: textController2,
+                                            controller: phonenumController,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText:
@@ -345,7 +346,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                                         child: Align(
                                           alignment: Alignment(0, 0.4),
                                           child: TextFormField(
-                                            controller: emailTextController,
+                                            controller: useremailController,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText:
@@ -456,8 +457,8 @@ class _SignupWidgetState extends State<SignupWidget> {
                                         child: Align(
                                           alignment: Alignment(0, 0.4),
                                           child: TextFormField(
-                                            controller: passwordTextController,
-                                            obscureText: !passwordVisibility1,
+                                            controller: passwordController,
+                                            obscureText: !passwordVisibility,
                                             decoration: InputDecoration(
                                               hintText: 'Create a new password',
                                               hintStyle: FlutterFlowTheme
@@ -494,11 +495,11 @@ class _SignupWidgetState extends State<SignupWidget> {
                                               ),
                                               suffixIcon: InkWell(
                                                 onTap: () => setState(
-                                                  () => passwordVisibility1 =
-                                                      !passwordVisibility1,
+                                                  () => passwordVisibility =
+                                                      !passwordVisibility,
                                                 ),
                                                 child: Icon(
-                                                  passwordVisibility1
+                                                  passwordVisibility
                                                       ? Icons
                                                           .visibility_outlined
                                                       : Icons
@@ -582,8 +583,9 @@ class _SignupWidgetState extends State<SignupWidget> {
                                           alignment: Alignment(0, 0.4),
                                           child: TextFormField(
                                             controller:
-                                                confirmPasswordTextController,
-                                            obscureText: !passwordVisibility2,
+                                                passwordconfirmController,
+                                            obscureText:
+                                                !passwordconfirmVisibility,
                                             decoration: InputDecoration(
                                               hintText:
                                                   'Confirm your new password',
@@ -621,11 +623,11 @@ class _SignupWidgetState extends State<SignupWidget> {
                                               ),
                                               suffixIcon: InkWell(
                                                 onTap: () => setState(
-                                                  () => passwordVisibility2 =
-                                                      !passwordVisibility2,
+                                                  () => passwordconfirmVisibility =
+                                                      !passwordconfirmVisibility,
                                                 ),
                                                 child: Icon(
-                                                  passwordVisibility2
+                                                  passwordconfirmVisibility
                                                       ? Icons
                                                           .visibility_outlined
                                                       : Icons
@@ -663,73 +665,67 @@ class _SignupWidgetState extends State<SignupWidget> {
                         ),
                       ),
                     ),
-                    Container(
-                      width: double.infinity,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  if (!formKey.currentState.validate()) {
-                                    return;
-                                  }
-                                  if (passwordTextController.text !=
-                                      confirmPasswordTextController.text) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          "Passwords don't match!",
-                                        ),
-                                      ),
-                                    );
-                                    return;
-                                  }
-
-                                  final user = await createAccountWithEmail(
-                                    context,
-                                    emailTextController.text,
-                                    passwordTextController.text,
-                                  );
-                                  if (user == null) {
-                                    return;
-                                  }
-
-                                  await Navigator.pushAndRemoveUntil(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          NavBarPage(initialPage: 'HomePage'),
-                                    ),
-                                    (r) => false,
-                                  );
-                                },
-                                text: 'Create Account',
-                                options: FFButtonOptions(
-                                  width: 240,
-                                  height: 60,
-                                  color: FlutterFlowTheme.primaryColor,
-                                  textStyle: FlutterFlowTheme.title3.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                  ),
-                                  elevation: 12,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1,
-                                  ),
-                                  borderRadius: 12,
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          if (!formKey.currentState.validate()) {
+                            return;
+                          }
+                          if (passwordController.text !=
+                              passwordconfirmController.text) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Passwords don't match!",
                                 ),
                               ),
-                            )
-                          ],
+                            );
+                            return;
+                          }
+
+                          final user = await createAccountWithEmail(
+                            context,
+                            useremailController.text,
+                            passwordController.text,
+                          );
+                          if (user == null) {
+                            return;
+                          }
+
+                          final usersCreateData = createUsersRecordData(
+                            displayName: displaynameController.text,
+                            phoneNumber: phonenumController.text,
+                            email: useremailController.text,
+                          );
+                          await UsersRecord.collection
+                              .doc(user.uid)
+                              .update(usersCreateData);
+
+                          await Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  NavBarPage(initialPage: 'HomePage'),
+                            ),
+                            (r) => false,
+                          );
+                        },
+                        text: 'Create Account',
+                        options: FFButtonOptions(
+                          width: 240,
+                          height: 60,
+                          color: FlutterFlowTheme.primaryColor,
+                          textStyle: FlutterFlowTheme.title3.override(
+                            fontFamily: 'Poppins',
+                            color: Colors.white,
+                          ),
+                          elevation: 12,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1,
+                          ),
+                          borderRadius: 12,
                         ),
                       ),
                     )
